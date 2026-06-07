@@ -174,7 +174,7 @@
             Margin = new Padding(4);
             Name = "RegisterForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "RegisterForm";
+            Text = "Реєстрація";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

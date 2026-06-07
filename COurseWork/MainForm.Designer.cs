@@ -251,7 +251,7 @@
             Margin = new Padding(4);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "MainForm";
+            Text = "Головна сторінка";
             Load += MainForm_Load;
             ((System.ComponentModel.ISupportInitialize)dgvBooks).EndInit();
             panel1.ResumeLayout(false);

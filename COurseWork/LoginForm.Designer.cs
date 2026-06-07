@@ -138,7 +138,7 @@
             Margin = new Padding(4);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Вхід";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

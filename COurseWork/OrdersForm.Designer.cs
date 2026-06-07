@@ -234,7 +234,7 @@
             Margin = new Padding(4);
             Name = "OrdersForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "OrdersForm";
+            Text = "Клієнтські замовлення";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvOrders).EndInit();
