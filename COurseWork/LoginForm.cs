@@ -7,6 +7,7 @@ namespace COurseWork
     public partial class LoginForm : Form
     {
         private DatabaseManager dbManager;
+
         public LoginForm()
         {
             InitializeComponent();
@@ -28,8 +29,8 @@ namespace COurseWork
             {
                 dbManager.OpenConnection();
 
-                //параметризований запит
-                string query = "SELECT id, full_name, password FROM clients WHERE email = @email AND password = @password";
+                // ЗМІНА 1: Додали role у список SELECT (видалили password, бо він тут не потрібен)
+                string query = "SELECT id, full_name, role FROM clients WHERE email = @email AND password = @password";
 
                 MySqlCommand command = new MySqlCommand(query, dbManager.GetConnection());
                 command.Parameters.AddWithValue("@email", email);
@@ -41,12 +42,17 @@ namespace COurseWork
                 {
                     int userId = reader.GetInt32("id");
                     string userName = reader.GetString("full_name");
+                    string userRole = reader.GetString("role"); // ЗМІНА 2: Читаємо роль з БД
+
+                    // ЗМІНА 3: Записуємо дані у статичний клас сесії
+                    CurrentUser.Id = userId;
+                    CurrentUser.Role = userRole;
 
                     MessageBox.Show($"Успішний вхід! Вітаємо, {userName}.", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Приховуємо форму логіну та відкриваємо головну форму каталогу книг
                     this.Hide();
-                    MainForm mainForm = new MainForm(userId, userName);
+                    MainForm mainForm = new MainForm(userId, userName); // Залишили без змін!
                     mainForm.ShowDialog();
                     this.Close();
                 }

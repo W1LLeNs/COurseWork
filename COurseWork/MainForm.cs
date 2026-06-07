@@ -26,6 +26,19 @@ namespace COurseWork
 
             LoadCategories(); // Завантажить жанри у випадаючий список
             LoadBooks();// Завантажить книги в таблицю
+
+            if (CurrentUser.Role == "ADMIN")
+            {
+                btnAdminPanel.Visible = true;   // Показуємо панель керування книгами
+                btnOrders.Visible = true;       // Показуємо кнопку замовлень
+                btnGoToCart.Visible = false;        // Ховаємо кошик від адміна
+            }
+            else
+            {
+                btnAdminPanel.Visible = false;  // Ховаємо панель від юзера
+                btnOrders.Visible = false;      // Ховаємо замовлення від юзера
+                btnGoToCart.Visible = true;         // Показуємо кошик
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -163,6 +176,20 @@ namespace COurseWork
         private void cmbCategories_SelectionChangeCommitted(object sender, EventArgs e)
         {
             LoadBooks();
+        }
+
+        private void btnAdminPanel_Click(object sender, EventArgs e)
+        {
+            AdminForm adminForm = new AdminForm();
+            adminForm.ShowDialog();
+
+            LoadBooks();
+        }
+
+        private void btnOrders_Click(object sender, EventArgs e)
+        {
+            OrdersForm ordersForm = new OrdersForm();
+            ordersForm.ShowDialog();
         }
     }
 }

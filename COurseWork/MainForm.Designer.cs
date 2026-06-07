@@ -35,6 +35,8 @@
             btnAddToCart = new Button();
             btnGoToCart = new Button();
             panel1 = new Panel();
+            btnOrders = new Button();
+            btnAdminPanel = new Button();
             label3 = new Label();
             label1 = new Label();
             label2 = new Label();
@@ -129,6 +131,8 @@
             // panel1
             // 
             panel1.BackColor = Color.SeaGreen;
+            panel1.Controls.Add(btnOrders);
+            panel1.Controls.Add(btnAdminPanel);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(btnGoToCart);
             panel1.Controls.Add(label1);
@@ -138,6 +142,40 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1029, 122);
             panel1.TabIndex = 5;
+            // 
+            // btnOrders
+            // 
+            btnOrders.BackColor = Color.SteelBlue;
+            btnOrders.Cursor = Cursors.Hand;
+            btnOrders.FlatAppearance.BorderSize = 0;
+            btnOrders.FlatStyle = FlatStyle.Flat;
+            btnOrders.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnOrders.ForeColor = SystemColors.Window;
+            btnOrders.Location = new Point(675, 27);
+            btnOrders.Margin = new Padding(4);
+            btnOrders.Name = "btnOrders";
+            btnOrders.Size = new Size(286, 69);
+            btnOrders.TabIndex = 7;
+            btnOrders.Text = "ЗАМОВЛЕННЯ КЛІЄНТІВ";
+            btnOrders.UseVisualStyleBackColor = false;
+            btnOrders.Click += btnOrders_Click;
+            // 
+            // btnAdminPanel
+            // 
+            btnAdminPanel.BackColor = Color.FromArgb(192, 0, 0);
+            btnAdminPanel.Cursor = Cursors.Hand;
+            btnAdminPanel.FlatAppearance.BorderSize = 0;
+            btnAdminPanel.FlatStyle = FlatStyle.Flat;
+            btnAdminPanel.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdminPanel.ForeColor = SystemColors.Window;
+            btnAdminPanel.Location = new Point(349, 27);
+            btnAdminPanel.Margin = new Padding(4);
+            btnAdminPanel.Name = "btnAdminPanel";
+            btnAdminPanel.Size = new Size(286, 69);
+            btnAdminPanel.TabIndex = 6;
+            btnAdminPanel.Text = "ІНСТРУМЕНТИ АДМІНА";
+            btnAdminPanel.UseVisualStyleBackColor = false;
+            btnAdminPanel.Click += btnAdminPanel_Click;
             // 
             // label3
             // 
@@ -236,5 +274,7 @@
         private Label label3;
         private Panel panel2;
         private Label label4;
+        private Button btnAdminPanel;
+        private Button btnOrders;
     }
 }
